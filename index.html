@@ -1,423 +1,113 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Парфюм • 3 хита • Заказ онлайн</title>
-  <meta name="description" content="Dior Sauvage 100ml, Montale (топ), LV Imagination. Быстрый заказ и оплата по QR." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Каталог духов</title>
 
-  <style>
-    :root{
-      --bg:#0b0b10; --card:#121220; --text:#f4f4ff; --muted:#b8b8d6;
-      --accent:#a78bfa; --accent2:#22c55e; --line:rgba(255,255,255,.08);
-      --shadow: 0 14px 40px rgba(0,0,0,.35);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0; font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
-      background: radial-gradient(900px 600px at 20% 0%, rgba(167,139,250,.18), transparent 60%),
-                  radial-gradient(700px 500px at 85% 10%, rgba(34,197,94,.12), transparent 60%),
-                  var(--bg);
-      color:var(--text);
-    }
-    a{color:inherit; text-decoration:none}
-    .container{max-width:1100px; margin:0 auto; padding:24px}
-    .topbar{
-      display:flex; align-items:center; justify-content:space-between; gap:16px;
-      border:1px solid var(--line); background:rgba(18,18,32,.7); backdrop-filter: blur(10px);
-      padding:14px 16px; border-radius:18px; box-shadow: var(--shadow);
-      position:sticky; top:14px; z-index:50;
-    }
-    .brand{display:flex; align-items:center; gap:10px}
-    .logo{
-      width:38px;height:38px;border-radius:14px;
-      background: linear-gradient(135deg, var(--accent), #60a5fa);
-      display:grid; place-items:center; font-weight:800;
-      box-shadow: 0 10px 20px rgba(167,139,250,.25);
-    }
-    .brand-title{line-height:1.1}
-    .brand-title b{display:block; font-size:14px; letter-spacing:.3px}
-    .brand-title span{font-size:12px; color:var(--muted)}
-    .nav{display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end}
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:10px 12px; border-radius:999px;
-      border:1px solid var(--line); background:rgba(255,255,255,.03);
-      color:var(--text); font-size:13px;
-      transition:.2s ease;
-    }
-    .pill:hover{transform: translateY(-1px); border-color: rgba(167,139,250,.35)}
-    .pill.primary{
-      border-color: rgba(167,139,250,.55);
-      background: linear-gradient(135deg, rgba(167,139,250,.25), rgba(96,165,250,.18));
-    }
-    header.hero{padding:56px 0 28px}
-    .hero-grid{display:grid; grid-template-columns: 1.25fr .75fr; gap:18px; align-items:stretch}
-    @media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
-    .hero-card, .mini, .card, form{
-      border:1px solid var(--line); background:rgba(18,18,32,.55); backdrop-filter: blur(10px);
-      border-radius:26px; box-shadow: var(--shadow);
-    }
-    .hero-card{padding:26px; overflow:hidden; position:relative}
-    .hero-card:before{
-      content:""; position:absolute; inset:-2px;
-      background: radial-gradient(500px 240px at 20% 0%, rgba(167,139,250,.22), transparent 60%),
-                  radial-gradient(420px 220px at 95% 20%, rgba(34,197,94,.16), transparent 60%);
-      pointer-events:none;
-    }
-    .hero-card > *{position:relative}
-    h1{margin:0 0 10px; font-size:40px; letter-spacing:-.8px}
-    @media (max-width:520px){h1{font-size:32px}}
-    .lead{margin:0 0 16px; color:var(--muted); font-size:15px; line-height:1.5}
-    .cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 14px; border-radius:14px; border:1px solid var(--line);
-      background:rgba(255,255,255,.04); color:var(--text); font-weight:650; font-size:14px;
-      transition:.2s ease; cursor:pointer;
-    }
-    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.16)}
-    .btn.accent{
-      border-color: rgba(167,139,250,.6);
-      background: linear-gradient(135deg, rgba(167,139,250,.33), rgba(96,165,250,.22));
-    }
-    .btn.green{
-      border-color: rgba(34,197,94,.6);
-      background: linear-gradient(135deg, rgba(34,197,94,.22), rgba(16,185,129,.14));
-    }
-    .mini{padding:18px; display:grid; gap:12px}
-    .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:10px 12px; border-radius:16px;
-      border:1px dashed rgba(167,139,250,.5);
-      color:var(--muted); font-size:13px;
-    }
-    .stat{
-      border:1px solid var(--line); background:rgba(255,255,255,.03);
-      border-radius:18px; padding:12px;
-    }
-    .stat b{display:block; font-size:14px}
-    .stat span{color:var(--muted); font-size:12px}
-    section{padding:26px 0}
-    .section-title{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:14px}
-    h2{margin:0; font-size:22px}
-    .section-sub{color:var(--muted); font-size:13px; margin:0}
-    .grid{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
-    @media (max-width:900px){.grid{grid-template-columns:1fr 1fr}}
-    @media (max-width:600px){.grid{grid-template-columns:1fr}}
-    .card{padding:16px; display:grid; gap:12px}
-    .img{
-      border-radius:18px; border:1px solid var(--line);
-      background:
-        radial-gradient(220px 140px at 20% 10%, rgba(167,139,250,.25), transparent 60%),
-        radial-gradient(200px 140px at 90% 20%, rgba(34,197,94,.18), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      aspect-ratio: 4/3;
-      display:grid; place-items:center; color:rgba(255,255,255,.7); font-weight:700;
-      text-align:center; padding:14px;
-    }
-    .price{display:flex; align-items:baseline; justify-content:space-between; gap:10px}
-    .price b{font-size:16px}
-    .price span{color:var(--muted); font-size:12px}
-    .chips{display:flex; gap:8px; flex-wrap:wrap}
-    .chip{
-      font-size:12px; color:var(--muted);
-      padding:7px 10px; border-radius:999px;
-      border:1px solid var(--line); background:rgba(255,255,255,.03);
-    }
-    .text{color:var(--muted); font-size:13px; line-height:1.5; margin:0}
-    form{padding:16px; display:grid; gap:10px}
-    label{font-size:12px; color:var(--muted)}
-    input, select, textarea{
-      width:100%; padding:12px 12px; border-radius:14px;
-      border:1px solid var(--line); background:rgba(0,0,0,.25);
-      color:var(--text); outline:none;
-    }
-    textarea{min-height:92px; resize:vertical}
-    .row{display:grid; grid-template-columns: 1fr 1fr; gap:10px}
-    @media (max-width:700px){.row{grid-template-columns:1fr}}
-    .qrbox{
-      display:grid; grid-template-columns: 160px 1fr; gap:14px; align-items:center;
-      border:1px solid var(--line); background:rgba(255,255,255,.03);
-      padding:12px; border-radius:18px;
-    }
-    @media (max-width:520px){.qrbox{grid-template-columns:1fr}}
-    .qrimg{
-      width:160px; height:160px; border-radius:16px; border:1px solid var(--line);
-      background: rgba(0,0,0,.25);
-      display:grid; place-items:center; color:rgba(255,255,255,.7);
-      overflow:hidden;
-    }
-    .qrimg img{width:100%; height:100%; object-fit:cover; display:block}
-    footer{padding:26px 0 46px; color:var(--muted); font-size:12px}
-    .note{border-top:1px solid var(--line); padding-top:16px; margin-top:10px}
-    .smalllink{color:rgba(167,139,250,.95); text-decoration:underline; text-underline-offset:3px}
-  </style>
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#0b0b10;
+  color:white;
+}
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:30px;
+}
+h1{
+  text-align:center;
+  margin-bottom:30px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:20px;
+}
+.card{
+  background:#141420;
+  border-radius:12px;
+  padding:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+.card img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  border-radius:8px;
+}
+.title{
+  font-size:18px;
+  margin:10px 0;
+}
+.price{
+  font-size:20px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+.button{
+  display:inline-block;
+  padding:10px 15px;
+  background:#7c5cff;
+  color:white;
+  text-decoration:none;
+  border-radius:8px;
+}
+.out{
+  opacity:.5;
+}
+</style>
 </head>
 
 <body>
-  <div class="container">
 
-    <div class="topbar">
-      <div class="brand">
-        <div class="logo">P</div>
-        <div class="brand-title">
-          <b>Парфюм • 3 хита</b>
-          <span>Заказ + оплата по QR</span>
-        </div>
-      </div>
-      <nav class="nav">
-        <a class="pill" href="#catalog">Каталог</a>
-        <a class="pill" href="#pay">Оплата</a>
-        <a class="pill primary" href="#order">Оформить заказ</a>
-      </nav>
-    </div>
+<div class="container">
+<h1>Каталог</h1>
+<div class="grid" id="catalog"></div>
+</div>
 
-    <header class="hero">
-      <div class="hero-grid">
-        <div class="hero-card">
-          <h1>Три аромата — быстро выбрать и заказать</h1>
-          <p class="lead">
-            Выбираешь один из трёх, оставляешь заявку — я подтверждаю наличие/доставку и отправляю.
-            Оплата возможна по QR (например СБП) или по договорённости.
-          </p>
-          <div class="cta-row">
-            <a class="btn accent" href="#catalog">Смотреть ароматы</a>
-            <a class="btn" href="#order">Оформить заказ</a>
-            <a class="btn green" href="#pay">Оплатить по QR</a>
-          </div>
-          <div class="cta-row" style="margin-top:10px">
-            <span class="badge">⚡ Обычно отвечаю быстро (в рабочее время)</span>
-          </div>
-        </div>
+<script>
+const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSPSjq1bFciqKWgi9bNaEXtx2EXzKyapOI_9a5H7Q5H3TibgZbA0_QPLiP1Vpbk69QUAlUZcDATjpBM/pub?output=csv";
 
-        <aside class="mini">
-          <div class="stat">
-            <b>Доставка</b>
-            <span>по городу / СДЭК / самовывоз (как удобно)</span>
-          </div>
-          <div class="stat">
-            <b>Оплата</b>
-            <span>QR (СБП) / перевод / наличные</span>
-          </div>
-          <div class="stat">
-            <b>Проверка</b>
-            <span>условия проверки при получении — по договорённости</span>
-          </div>
-        </aside>
-      </div>
-    </header>
+fetch(CSV_URL)
+  .then(res => res.text())
+  .then(data => {
+    const rows = data.split("\n").slice(1);
+    const catalog = document.getElementById("catalog");
 
-    <section id="catalog">
-      <div class="section-title">
-        <div>
-          <h2>Каталог</h2>
-          <p class="section-sub">Заменить цены/фото можно за 2 минуты в коде.</p>
-        </div>
-      </div>
+    rows.forEach(row => {
+      const cols = row.split(",");
+      if(cols.length < 7) return;
 
-      <div class="grid">
-        <!-- 1 -->
-        <article class="card">
-          <div class="img">Dior Sauvage<br>100 ml</div>
-          <div class="price">
-            <b>Dior Sauvage 100 ml</b>
-            <span>₽ 0 000</span>
-          </div>
-          <div class="chips">
-            <span class="chip">Тип: мужской / унисекс</span>
-            <span class="chip">Характер: свежий, амброксан</span>
-            <span class="chip">На каждый день</span>
-          </div>
-          <p class="text">
-            Самый узнаваемый “свежий” профиль: чисто, ярко, уверенно. Если нужен универсальный — это он.
-          </p>
-          <div class="cta-row">
-            <a class="btn accent" href="#order" onclick="prefill('Dior Sauvage 100 ml')">Заказать</a>
-            <a class="btn" href="#pay">Оплата QR</a>
-          </div>
-        </article>
+      const brand = cols[0];
+      const name = cols[1];
+      const ml = cols[2];
+      const type = cols[3];
+      const price = cols[4];
+      const stock = cols[5];
+      const img = cols[6];
 
-        <!-- 2 -->
-        <article class="card">
-          <div class="img">Montale<br>Intense Café<br>(популярный)</div>
-          <div class="price">
-            <b>Montale Intense Café</b>
-            <span>₽ 0 000</span>
-          </div>
-          <div class="chips">
-            <span class="chip">Хит Montale</span>
-            <span class="chip">Кофе + роза</span>
-            <span class="chip">Стойкость: высокая</span>
-          </div>
-          <p class="text">
-            Самый народный Montale: сладковатый кофе с розой и “пудровостью”. Комплиментный и очень стойкий.
-          </p>
-          <div class="cta-row">
-            <a class="btn accent" href="#order" onclick="prefill('Montale Intense Café')">Заказать</a>
-            <a class="btn" href="#pay">Оплата QR</a>
-          </div>
-        </article>
+      const card = document.createElement("div");
+      card.className = "card";
+      if(stock == 0) card.classList.add("out");
 
-        <!-- 3 -->
-        <article class="card">
-          <div class="img">Louis Vuitton<br>Imagination</div>
-          <div class="price">
-            <b>Louis Vuitton Imagination</b>
-            <span>₽ 0 000</span>
-          </div>
-          <div class="chips">
-            <span class="chip">Люкс-свежесть</span>
-            <span class="chip">Цитрусы + чай</span>
-            <span class="chip">Чистый шлейф</span>
-          </div>
-          <p class="text">
-            “Дорогая свежесть”: цитрусы, воздушность и ощущение идеально чистой рубашки. Очень приятный дневной аромат.
-          </p>
-          <div class="cta-row">
-            <a class="btn accent" href="#order" onclick="prefill('Louis Vuitton Imagination')">Заказать</a>
-            <a class="btn" href="#pay">Оплата QR</a>
-          </div>
-        </article>
-      </div>
-    </section>
+      card.innerHTML = `
+        <img src="${img}" alt="">
+        <div class="title">${brand} ${name} ${ml}ml ${type}</div>
+        <div class="price">${price} ₽</div>
+        ${stock == 1 ? 
+          `<a class="button" href="mailto:youremail@example.com?subject=Заказ ${brand} ${name}&body=Хочу заказать ${brand} ${name} ${ml}ml">Заказать</a>`
+          :
+          `<div>Нет в наличии</div>`
+        }
+      `;
 
-    <section id="pay">
-      <div class="section-title">
-        <div>
-          <h2>Оплата по QR</h2>
-          <p class="section-sub">Можно прикрутить “онлайн-оплату” через QR-код (например СБП или платёжная ссылка).</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="qrbox">
-          <div class="qrimg">
-            <!-- ВАРИАНТ 1: вставь png с QR в папку рядом и раскомментируй строку ниже -->
-            <!-- <img src="qr.png" alt="QR для оплаты"> -->
-            QR PNG сюда
-          </div>
-          <div>
-            <b>Как сделать, чтобы работало</b>
-            <p class="text" style="margin-top:8px">
-              1) В своём банке сформируй QR (СБП) или платёжную ссылку.<br>
-              2) Сохрани QR картинкой <span class="chip">qr.png</span> рядом с файлом сайта.<br>
-              3) В коде раскомментируй строку <span class="chip">&lt;img src="qr.png"&gt;</span>.
-            </p>
-            <p class="text" style="margin-top:8px">
-              Хочешь, добавлю кнопку “Открыть платёжную ссылку” — если банк даёт URL (тогда оплата будет прям в браузере).
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="order">
-      <div class="section-title">
-        <div>
-          <h2>Оформить заказ</h2>
-          <p class="section-sub">Форма через mailto: откроет письмо с заполненными данными и отправкой на твою почту.</p>
-        </div>
-      </div>
-
-      <!-- ВСТАВЬ СВОЮ ПОЧТУ ВМЕСТО youremail@example.com -->
-      <form id="orderForm">
-        <div class="row">
-          <div>
-            <label>Имя</label>
-            <input id="name" placeholder="Как к вам обращаться?" required />
-          </div>
-          <div>
-            <label>Телефон / Telegram</label>
-            <input id="contact" placeholder="+49… или @username" required />
-          </div>
-        </div>
-
-        <div class="row">
-          <div>
-            <label>Выбранный аромат</label>
-            <select id="perfume" required>
-              <option value="" disabled selected>Выбрать…</option>
-              <option>Dior Sauvage 100 ml</option>
-              <option>Montale Intense Café</option>
-              <option>Louis Vuitton Imagination</option>
-            </select>
-          </div>
-          <div>
-            <label>Доставка</label>
-            <select id="delivery" required>
-              <option value="" disabled selected>Выбрать…</option>
-              <option>Самовывоз</option>
-              <option>Доставка по городу</option>
-              <option>СДЭК / почта</option>
-            </select>
-          </div>
-        </div>
-
-        <div>
-          <label>Комментарий</label>
-          <textarea id="comment" placeholder="Адрес/район доставки, удобное время, вопросы по стойкости и т.д."></textarea>
-        </div>
-
-        <div class="cta-row">
-          <button class="btn accent" type="submit">Отправить заявку на почту</button>
-          <a class="btn green" href="#pay">Оплата по QR</a>
-        </div>
-
-        <p class="text" style="margin-top:6px">
-          Если хочешь, чтобы заявки приходили “железно” без почтового клиента — скажи, дам версию с Formspree/Google Sheets.
-        </p>
-      </form>
-    </section>
-
-    <footer>
-      <div class="note">
-        <div>© <span id="year"></span> Твой мини-магазин • <a class="smalllink" href="#order">Заказ</a></div>
-        <div style="margin-top:6px">Данные используются только для связи по заказу.</div>
-      </div>
-    </footer>
-
-  </div>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    function prefill(name){
-      const sel = document.getElementById('perfume');
-      for (const opt of sel.options){
-        if (opt.text === name){ sel.value = opt.text; break; }
-      }
-      document.getElementById('order').scrollIntoView({behavior:'smooth'});
-    }
-
-    // Отправка заявки через mailto (без сервера)
-    // ВАЖНО: вставь свою почту ниже:
-    const SELLER_EMAIL = "youremail@example.com";
-
-    document.getElementById('orderForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById('name').value.trim();
-      const contact = document.getElementById('contact').value.trim();
-      const perfume = document.getElementById('perfume').value;
-      const delivery = document.getElementById('delivery').value;
-      const comment = document.getElementById('comment').value.trim();
-
-      const subject = encodeURIComponent(`Заказ духов: ${perfume}`);
-      const body = encodeURIComponent(
-`Новый заказ:
-
-Имя: ${name}
-Контакт: ${contact}
-Аромат: ${perfume}
-Доставка: ${delivery}
-Комментарий: ${comment || "-"}
-
-(Отправлено с лендинга)`
-      );
-
-      window.location.href = `mailto:${SELLER_EMAIL}?subject=${subject}&body=${body}`;
+      catalog.appendChild(card);
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
