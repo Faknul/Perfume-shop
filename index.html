@@ -9,56 +9,57 @@
 
 <style>
   :root{
-  --bg:#0b0b12;
-  --card:#161625;
-  --text:#ffffff;
-  --muted:rgba(255,255,255,.7);
-  --line:rgba(255,255,255,.10);
-  --accent:#7c5cff;
-  --shadow:0 14px 40px rgba(0,0,0,.45);
-  --radius:16px;
-}
-
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color:var(--text);
-  background: linear-gradient(120deg, #0f0f15, #1b1b2e);
-  position: relative;
-  overflow-x: hidden;
-}
-
-body::before{
-  content:"";
-  position:fixed;
-  width:700px;
-  height:700px;
-  background: radial-gradient(circle, rgba(255,255,255,.05), transparent 70%);
-  top:-200px;
-  left:-200px;
-  filter:blur(80px);
-  z-index:-1;
-}
-
-body::after{
-  content:"";
-  position:fixed;
-  width:700px;
-  height:700px;
-  background: radial-gradient(circle, rgba(124,92,255,.08), transparent 70%);
-  bottom:-200px;
-  right:-200px;
-  filter:blur(100px);
-  z-index:-1;
-}
+    --bg:#0b0b12;
+    --card:#161625;
+    --text:#ffffff;
+    --muted:rgba(255,255,255,.7);
+    --line:rgba(255,255,255,.10);
+    --accent:#7c5cff;
+    --shadow:0 14px 40px rgba(0,0,0,.45);
+    --radius:16px;
   }
+
+  *{box-sizing:border-box}
+
+  body{
+    margin:0;
+    font-family:'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color:var(--text);
+    background: linear-gradient(120deg, #0f0f15, #1b1b2e);
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before{
+    content:"";
+    position:fixed;
+    width:700px;
+    height:700px;
+    background: radial-gradient(circle, rgba(255,255,255,.05), transparent 70%);
+    top:-200px;
+    left:-200px;
+    filter:blur(80px);
+    z-index:-1;
+    pointer-events:none;
+  }
+
+  body::after{
+    content:"";
+    position:fixed;
+    width:700px;
+    height:700px;
+    background: radial-gradient(circle, rgba(124,92,255,.08), transparent 70%);
+    bottom:-200px;
+    right:-200px;
+    filter:blur(100px);
+    z-index:-1;
+    pointer-events:none;
+  }
+
   a{color:inherit;text-decoration:none}
   .container{max-width:1200px;margin:0 auto;padding:22px}
-  header{
-    padding:26px 0 10px;
-  }
+  header{padding:26px 0 10px}
+
   .topbar{
     display:flex;align-items:center;justify-content:space-between;gap:12px;
     background:rgba(22,22,37,.75);
@@ -78,6 +79,7 @@ body::after{
   }
   .brand h1{font-size:16px;margin:0;line-height:1.1}
   .brand p{margin:0;color:var(--muted);font-size:12px}
+
   .actions{display:flex;gap:10px;align-items:center}
   .search{
     display:flex;gap:10px;align-items:center;flex:1;
@@ -105,9 +107,7 @@ body::after{
   }
   .pill:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.18)}
   .pill.accent{border-color:rgba(124,92,255,.55);background:rgba(124,92,255,.18)}
-  .cartbtn{
-    position:relative;
-  }
+  .cartbtn{position:relative}
   .badge{
     position:absolute; top:-6px; right:-6px;
     background:#ff3b3b;
@@ -120,10 +120,7 @@ body::after{
     display:none;
   }
 
-  .hero{
-    padding:22px 0 6px;
-    display:grid;gap:12px;
-  }
+  .hero{padding:22px 0 6px;display:grid;gap:12px}
   .hero h2{margin:0;font-size:28px}
   .hero p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}
 
@@ -158,9 +155,7 @@ body::after{
     border:1px solid var(--line);
     background:rgba(255,255,255,.03);
   }
-  .row{
-    display:flex;align-items:center;justify-content:space-between;gap:10px;
-  }
+  .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
   .price{font-size:18px;font-weight:800}
   .muted{color:var(--muted);font-size:12px}
   .btn{
@@ -216,19 +211,16 @@ body::after{
     background:rgba(255,255,255,.03);
     display:grid;gap:8px;
   }
-  .cart-item .top{
-    display:flex;gap:10px;align-items:center;
-  }
+  .cart-item .top{display:flex;gap:10px;align-items:center}
   .thumb{
     width:54px;height:54px;border-radius:12px;
     object-fit:cover;border:1px solid var(--line);
     background:rgba(0,0,0,.25);
   }
   .cart-item .name{font-weight:700;font-size:13px;line-height:1.2}
-  .qty{
-    display:flex;align-items:center;gap:8px;flex-wrap:wrap;
-  }
+  .qty{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .qty b{min-width:22px;text-align:center}
+
   .drawer-foot{
     border-top:1px solid var(--line);
     padding:14px;
@@ -397,7 +389,6 @@ body::after{
   }
 
   function toNumber(price){
-    // "8 990", "8990", "8,990", "8990 ₽"
     const cleaned = String(price ?? "")
       .replaceAll("₽","")
       .replaceAll(" ", "")
@@ -413,13 +404,13 @@ body::after{
   }
 
   // --- state ---
-  let products = [];   // {id, brand, name, ml, type, price, in_stock, img}
+  let products = [];
   let filtered = [];
   let onlyStock = false;
-  let sortMode = 0; // 0 off, 1 asc, 2 desc
+  let sortMode = 0;
 
   const CART_KEY = "perfume_cart_v1";
-  let cart = loadCart(); // { [id]: qty }
+  let cart = loadCart();
 
   function loadCart(){
     try{
@@ -513,7 +504,6 @@ body::after{
       wrap.appendChild(card);
     }
 
-    // навешиваем события на кнопки
     wrap.querySelectorAll("[data-add]").forEach(btn => {
       btn.addEventListener("click", () => addToCart(btn.getAttribute("data-add")));
     });
@@ -593,7 +583,6 @@ body::after{
     renderCatalog(filtered);
   }
 
-  // --- drawer controls ---
   function openCart(){
     $("backdrop").classList.add("open");
     $("drawer").classList.add("open");
@@ -604,7 +593,6 @@ body::after{
     $("drawer").classList.remove("open");
   }
 
-  // --- checkout (mailto) ---
   function checkout(){
     if(!Object.keys(cart).length){
       alert("Корзина пустая.");
@@ -640,7 +628,7 @@ body::after{
     window.location.href = `mailto:${SELLER_EMAIL}?subject=${subject}&body=${body}`;
   }
 
-  // --- init ---
+  // init
   $("year").textContent = new Date().getFullYear();
 
   $("cartOpenBtn").addEventListener("click", openCart);
@@ -660,7 +648,7 @@ body::after{
   });
 
   $("sortPrice").addEventListener("click", () => {
-    sortMode = (sortMode + 1) % 3; // 0 -> 1 -> 2 -> 0
+    sortMode = (sortMode + 1) % 3;
     $("sortPrice").textContent =
       sortMode === 0 ? "Сортировка по цене: выкл" :
       sortMode === 1 ? "Сортировка по цене: ↑" :
@@ -671,7 +659,6 @@ body::after{
   $("checkoutBtn").addEventListener("click", checkout);
   $("clearCartBtn").addEventListener("click", clearCart);
 
-  // Загружаем CSV
   fetch(CSV_URL, { cache: "no-store" })
     .then(r => r.text())
     .then(text => {
@@ -694,7 +681,7 @@ body::after{
 
       products = table.slice(1)
         .filter(r => r.length && r.some(x => String(x).trim().length))
-        .map((r, n) => {
+        .map(r => {
           const brand = r[iBrand] ?? "";
           const name  = r[iName] ?? "";
           const ml    = r[iMl] ?? "";
@@ -704,12 +691,11 @@ body::after{
           const img   = (r[iImg] ?? "").trim();
 
           const id = `${brand}__${name}__${ml}__${type}`.toLowerCase().replace(/\s+/g,"_");
-
           return { id, brand, name, ml, type, price, in_stock, img };
         });
 
       updateBadge();
-      applyFilters();   // отрендерит каталог
+      applyFilters();
     })
     .catch(() => {
       $("countInfo").textContent = "Не удалось загрузить прайс. Проверь доступ по ссылке и формат CSV.";
